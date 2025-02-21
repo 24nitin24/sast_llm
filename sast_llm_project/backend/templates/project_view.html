@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Project: {{ project.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Project: {{ project.name }}</h2>
+    
+    <div class="card p-4">
+        <h4>Project Details</h4>
+        <p><strong>Team Members:</strong> {{ project.team_members }}</p>
+        <p><strong>Deadline:</strong> {{ project.deadline }}</p>
+        <p><strong>Priority:</strong> {{ project.priority }}</p>
+        <p><strong>Category:</strong> {{ project.category }}</p>
+    </div>
+
+    {% if project.image_path %}
+    <div class="mt-4 text-center">
+        <h4>Uploaded Diagram:</h4>
+        <img src="{{ url_for('static', filename=project.image_path) }}" class="img-fluid" alt="Project Image">
+    </div>
+    {% endif %}
+
+    <div class="mt-4">
+        <h4>Project Description</h4>
+        <div class="p-3 border bg-light">
+            {{ markdown_description | safe }}
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <h4>Application Actions</h4>
+        <div class="d-flex flex-wrap gap-3">
+            <a href="#" class="btn btn-purple">Generate Component Information</a>
+            <a href="#" class="btn btn-blue">Threat Scenarios</a>
+            <a href="#" class="btn btn-green">Security Test Cases</a>
+            <a href="#" class="btn btn-orange">Findings</a>
+            <a href="#" class="btn btn-cyan">Generate Findings Report</a>
+            <a href="#" class="btn btn-red">Export Threat Scenarios and Test Cases</a>
+            <a href="#" class="btn btn-teal">Upload Findings</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-purple { background-color: #a855f7; color: white; }
+    .btn-blue { background-color: #3b82f6; color: white; }
+    .btn-green { background-color: #10b981; color: white; }
+    .btn-orange { background-color: #f59e0b; color: white; }
+    .btn-cyan { background-color: #06b6d4; color: white; }
+    .btn-red { background-color: #ef4444; color: white; }
+    .btn-teal { background-color: #14b8a6; color: white; }
+    .btn { padding: 10px 15px; border-radius: 5px; text-decoration: none; text-align: center; }
+    .btn:hover { opacity: 0.8; }
+</style>
+
+{% endblock %}

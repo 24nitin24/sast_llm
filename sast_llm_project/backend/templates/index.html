@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Flask App{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Welcome to TriSec</h1>
+    <p class="lead">A simple Threat Modeling & Application Security Dashboard.</p>
+    <a href="{{ url_for('auth.login') }}" class="btn btn-primary">Get Started</a>
+</div>
+{% endblock %}
