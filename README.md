@@ -1,65 +1,113 @@
-# Code Security Scanner
+# 📜 Code Security Scanner  
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg?style=flat&logo=python) ![Flask](https://img.shields.io/badge/Flask-%23000.svg?style=flat&logo=flask) ![Ollama](https://img.shields.io/badge/Ollama-AI-red?style=flat&logo=ai) ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-## Overview
+🔍 **Scan Python code & architecture diagrams for security vulnerabilities and compliance issues.**  
+🚀 **AI-Powered security analysis using Ollama.**  
+💻 **Web-based security scanner for teams & projects.**  
 
-The Code Security Scanner is a web-based application that allows users to scan Python code and architecture diagrams (images) for security vulnerabilities and compliance issues. It leverages the Ollama model to perform security audits, threat modeling, architecture overviews, developer questions, and Governance, Risk, and Compliance (GRC) analysis. The application provides a user-friendly interface to upload files, enter code, and view detailed findings in Markdown format.
+---
 
-This project is built with Flask, SQLAlchemy, and JavaScript, and it’s designed to run on a local server with integration to Ollama for AI-powered analysis.
+## 🏆 Features
+✅ **Code Scanning**: Analyze Python code for vulnerabilities like **SQL injection, sensitive data leaks, and unsafe functions**.  
+✅ **Image Scanning**: Upload architecture diagrams for **Threat Modeling, Architecture Overview, Developer Security Questions, and GRC Compliance Analysis**.  
+✅ **Findings Management**: View, delete, and manage scan results in Markdown format.  
+✅ **User Authentication**: Secure **login, signup, and logout** for team-based security scans.  
+✅ **Team & Project Management**: Create **teams, manage projects, and collaborate** on security scans.  
+✅ **Real-Time Updates**: Dynamic **AJAX-based scanning** with **live notifications**.  
 
-## Features
+---
 
-- Code Scanning: Upload Python files or enter code to perform security audits, identifying vulnerabilities like SQL injection, sensitive data exposure, and unsafe function usage.
-- Image Scanning: Upload architecture diagrams to generate threat models, architecture overviews, developer security questions, and GRC compliance analysis.
-- Findings Management: View, delete, and manage scan results in a "Findings" tab, with results rendered in Markdown for readability.
-- User Authentication: Secure user authentication with login, signup, and logout functionality for teams and projects.
-- Team and Project Management: Create teams, manage projects, and assign users to teams for collaborative scanning.
-- Real-Time Updates: Dynamic fetching of scan results via AJAX, with popup notifications for scan status.
+## 🛠️ Prerequisites
+Before running the application, install the following:
 
-## Prerequisites
+\`\`\`bash
+pip install flask flask-login flask-sqlalchemy flask-migrate werkzeug requests
+\`\`\`
 
-Before running the application, ensure you have the following installed:
+📌 **Additional Requirements**:
+- **Python 3.9+**  
+- **SQLite** (included with Python)  
+- **Ollama** (AI Model) running at \`http://localhost:11434/api/generate\`  
+- **Front-end Libraries** (Included via CDN in \`project_detail.html\`):
+  - **jQuery**
+  - **Tailwind CSS**
+  - **Marked.js**  
 
-- Python 3.9+
-- Flask: `pip install flask`
-- Flask-Login: `pip install flask-login`
-- Flask-SQLAlchemy: `pip install flask-sqlalchemy`
-- Flask-Migrate: `pip install flask-migrate`
-- Werkzeug: `pip install werkzeug`
-- Jinja2: (Included with Flask)
-- Requests: `pip install requests` (for Ollama integration)
-- Marked.js: Included via CDN in `project_detail.html` (no installation needed for client-side use)
-- jQuery: Included via CDN in `project_detail.html` (no installation needed for client-side use)
-- Tailwind CSS: Included via CDN in `project_detail.html` (no installation needed for client-side use)
-- SQLite: Included with Python (used for the database)
-- Ollama: Running locally at `http://localhost:11434/api/generate` (ensure the model server is operational)
+---
 
-## Installation
+## 🚀 Installation & Setup
 
-Clone the Repository: `git clone <your-repository-url>`; `cd code-security-scanner`
+### 📥 1. Clone the Repository
+\`\`\`bash
+git clone <your-repository-url>
+cd code-security-scanner
+\`\`\`
 
-Create a Virtual Environment: `python -m venv venv`; `source venv/bin/activate` (On Windows use `venv\Scripts\activate`)
+### 🔧 2. Create a Virtual Environment
+\`\`\`bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+\`\`\`
 
-Install Dependencies: `pip install -r requirements.txt`; Create a `requirements.txt` file with the following content: `flask`, `flask-login`, `flask-sqlalchemy`, `flask-migrate`, `werkzeug`, `requests`
+### 📦 3. Install Dependencies
+\`\`\`bash
+pip install -r requirements.txt
+\`\`\`
 
-Set Up the Database: Ensure `app.db` is created in the project root directory. Run the following to initialize the database: `flask db init` (Only needed once for Flask-Migrate); `flask db migrate` (Generate migration scripts); `flask db upgrade` (Apply migrations); Alternatively, run the application with `python app.py`, and it will create the database automatically with `db.create_all()`.
+### 🏗️ 4. Set Up the Database
+\`\`\`bash
+flask db init       # One-time setup
+flask db migrate    # Generate migration scripts
+flask db upgrade    # Apply migrations
+\`\`\`
+Alternatively, **run \`python app.py\`**, and the database will be created automatically.
 
-Start Ollama: Ensure Ollama is running locally at `http://localhost:11434/api/generate`. Follow the Ollama setup instructions to install and start the server with your desired model: `ollama pull llama3` (Pull a specific model, e.g., llama3); `ollama run llama3` (Start the model server); Verify the server is running by accessing `http://localhost:11434` in your browser or using `curl`.
+### 🤖 5. Start Ollama AI
+\`\`\`bash
+ollama pull llama3   # Pull AI model
+ollama run llama3    # Start the Ollama AI server
+\`\`\`
+**Verify Server**:  
+Check \`http://localhost:11434\` in the browser or use:
+\`\`\`bash
+curl http://localhost:11434/api/generate
+\`\`\`
 
-Run the Application: `python app.py`; Open your browser and navigate to `http://127.0.0.1:5000`.
+### 🏃 6. Run the Application
+\`\`\`bash
+python app.py
+\`\`\`
+🔗 Open in Browser: [http://127.0.0.1:5000](http://127.0.0.1:5000)  
 
-## Usage
+---
 
-Sign Up and Log In: Visit `/signup` to create a new user account; Log in at `/login` with your credentials to access the dashboard.
+## 📌 Usage Guide
+### 🔑 1. Sign Up & Log In
+- Visit **\`/signup\`** to create an account.  
+- Log in at **\`/login\`** to access the **dashboard**.
 
-Create Teams and Projects: On the dashboard (`/dashboard`), use the "Create Team" form to create a team; Navigate to the team detail page (`/team/<team_id>`), use the "Create Project" form to create projects within the team.
+### 📁 2. Create Teams & Projects
+- Use **"Create Team"** on the **dashboard (\`/dashboard\`)**.
+- Navigate to **Team Page (\`/team/<team_id>\`)** to create projects.
 
-Scan Code or Images: Go to a project detail page (`/project/<project_id>`); Code Scans: Select "Upload Python File" to upload a `.py` file or "Enter Code" to paste Python code; Click "Scan" to analyze the code for security vulnerabilities; Image Scans: Select "Upload Image" to upload an architecture diagram; Choose an analysis type: "Threat Modeling," "Architecture Overview," "Developer Questions," or "GRC and Compliance"; Click "Analyze" to generate findings.
+### 🔍 3. Scan Code & Images
+- **Code Scanning**: Upload **Python files** or paste **code** for security analysis.  
+- **Image Scanning**: Upload **architecture diagrams** for:  
+  🔹 **Threat Modeling**  
+  🔹 **Architecture Overview**  
+  🔹 **Developer Questions**
+  🔹 **Code Scanning**  
+  🔹 **GRC & Compliance Analysis**  
 
-View Findings: Switch to the "Findings" tab on the project page to view scan results; Results are displayed in Markdown format, sorted by creation date (newest first); Use the "Delete" button to remove individual scan results.
+### 📜 4. View & Manage Findings
+- Navigate to **"Findings" tab** in a project.  
+- Results are displayed in **Markdown format**.  
+- **Delete findings** when no longer needed.
 
-## Project Structure
+---
 
-
+## 📂 Project Structure
+\`\`\`plaintext
 code-security-scanner/
 ├── app.py              # Flask application logic, routes, and models
 ├── run_llava_job.py    # Ollama integration for scanning code and images
@@ -72,33 +120,45 @@ code-security-scanner/
 │   ├── signup.html         # Signup page
 │   └── edit_project.html   # Project editing
 ├── uploads/            # Directory for uploaded files (code and images)
-├── app.db             # SQLite database file
+├── app.db              # SQLite database file
 ├── requirements.txt    # Python dependencies
-└── README.md          # This documentation
+└── README.md           # This documentation
+\`\`\`
+
+---
+
+## ⚙️ Configuration
+- **Secret Key**: Update \`app.config['SECRET_KEY']\` in \`app.py\` with a secure random string.  
+- **Uploads**: Ensure \`uploads/\` directory exists.  
+- **Ollama URL**: If running on a different server, update \`run_llava_job.py\`.  
+
+---
+
+## 🤝 Contributing
+We welcome contributions! To contribute:
+
+1️⃣ **Fork the repository.**  
+2️⃣ **Create a feature branch:**
+   \`\`\`bash
+   git checkout -b feature/your-feature-name
+   \`\`\`
+3️⃣ **Make changes & commit:**
+   \`\`\`bash
+   git commit -m "Add feature: GRC compliance scanning"
+   \`\`\`
+4️⃣ **Push to your fork & submit a pull request.**
+
+---
+
+## 💡 Acknowledgments
+💙 **Powered by**:
+- 🧠 **[Ollama](https://ollama.com/)** - AI model for security analysis  
+- 🏗️ **[Flask](https://flask.palletsprojects.com/)** - Web framework  
+- 🎨 **[Tailwind CSS](https://tailwindcss.com/)** - UI styling  
+- 🔗 **[jQuery](https://jquery.com/)** - Frontend interactions  
+- 📜 **[Marked.js](https://marked.js.org/)** - Markdown rendering  
 
 
-## Configuration
+---
 
-- Secret Key: Update `app.config['SECRET_KEY']` in `app.py` with a secure random string.
-- Upload Folder: Ensure the `uploads/` directory exists or is created automatically by `app.py`.
-- Ollama URL: Ensure Ollama is running at `http://localhost:11434/api/generate`. Update the URL in `run_llava_job.py` if it’s hosted elsewhere.
-
-## Contributing
-
-We welcome contributions to improve the Code Security Scanner! To contribute:
-
-Fork the repository.
-Create a new branch for your feature or bug fix: `git checkout -b feature/your-feature-name`
-Make your changes and commit them with descriptive messages: `git commit -m "Add feature: GRC compliance scanning"`
-Push to your fork and submit a pull request.
-
-
-## Acknowledgments
-
-- Ollama: For providing the AI model used for scanning and analysis.
-- Flask Community: For the robust web framework.
-- Open Source Contributors: For tools like Tailwind CSS, jQuery, and Marked.js.
-
-## Contact
-
-For questions or issues, please open an issue on GitHub or contact the maintainers at [your-email@example.com](mailto:your-email@example.com).
+🔥 **Happy Coding! Secure Your Apps with Code Security Scanner!** 🛡️💻
