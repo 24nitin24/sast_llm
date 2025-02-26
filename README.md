@@ -182,11 +182,6 @@ We welcome contributions! To contribute:
 - [jQuery](https://jquery.com/) - Frontend interactions  
 - [Marked.js](https://marked.js.org/) - Markdown rendering  
 
----
-
-## 📞 Contact
-For issues or questions, open a GitHub issue or email:  
-📧 [your-email@example.com](mailto:your-email@example.com)
 
 ---
 
